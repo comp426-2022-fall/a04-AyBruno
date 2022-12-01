@@ -4,11 +4,14 @@ import express from "express"
 
 const app = express();
 const args = minimist(process.argv.slice(2));
-let port = 5555;
-//console.log(roll(3,4,5));
+
+let port = 5000;
+
+if(args.port){
+    port = args.port;
+}
 
 function main(){
-    //port = 8888;    
     let sides;
     let dice;
     let rolls;
