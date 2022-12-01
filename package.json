@@ -1,0 +1,24 @@
+{
+  "name": "dice_endpoint",
+  "version": "1.0.0",
+  "description": "A dice rolling module with RESTful API endpoints",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js --port=5555"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/comp426-2022-fall/a04-AyBruno.git"
+  },
+  "author": "AyBruno",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/comp426-2022-fall/a04-AyBruno/issues"
+  },
+  "homepage": "https://github.com/comp426-2022-fall/a04-AyBruno#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "minimist": "^1.2.7"
+  }
+}
