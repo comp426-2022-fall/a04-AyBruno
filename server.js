@@ -3,6 +3,7 @@ import minimist from "minimist"
 import express from "express"
 
 const app = express();
+app.use(express.json());
 const args = minimist(process.argv.slice(2));
 
 let port = 5000;
@@ -17,26 +18,35 @@ function main(){
     let rolls;
 
     app.get('/', (req, res) => {
-        res.status(404).send('Not found');
+        res.status(404).send('404 NOT FOUND\n');
     });
 
-    app.get('/roll/:sides/:dice/:rolls/', (req, res) => {
+    app.get('/app', (req, res) => {
+        res.status(200).send('200 OK\n');
+    });
+
+    app.get('/app/roll', (req, res) => {
+        res.status(200).json(req.query);
+    });
+   
+    app.post('/app/roll', (req, res) => {
+        console.log(req);
+        res.status(200).send(req.body);
+    });
+    app.get('/app/roll/:sides/:dice?/:rolls?/', (req, res) => {
         sides = req.params.sides;
-        dice = req.params.dice;
-        rolls = req.params.rolls;
-        res.json(roll(sides, dice, rolls)); 
+        if(req.params.dice){
+            dice = req.params.dice;
+        }else{
+            dice = 2;
+        }
+        if(req.params.rolls){
+            rolls = req.params.rolls;
+        }else{
+            rolls = 1;
+        }
+        res.status(200).json(roll(sides, dice, rolls)); 
     });
-
-    app.get('/roll', (req, res) => {
-        sides = 6;
-        dice = 2;
-        rolls = 1;
-        res.json(roll(sides, dice, rolls)); 
-    });
-
-    //app.get('/roll', (req, res) => {
-    //    res.json(roll(3, 2, 4)); 
-    //});
 
     app.listen(port, () => {
         console.log('Roll app listening on port ' + port);
