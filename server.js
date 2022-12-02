@@ -27,17 +27,17 @@ function main(){
         sides = 6;
         dice = 2;
         rolls = 1;
-        /*
+
         if(req.query.sides){
-            sides = req.query.sides;
+            sides = parseInt(req.query.sides);
         }
         if(req.query.dice){
-            dice = req.query.dice;
+            dice = parseInt(req.query.dice);
         }
         if(req.query.rolls){
-            rolls = req.query.rolls;
+            rolls = parseInt(req.query.rolls);
         }
-        */
+
         res.status(200).json(roll(sides, dice, rolls));
     });
    
