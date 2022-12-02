@@ -47,13 +47,13 @@ function main(){
         rolls = 1;
 //        console.log(req.body);
         if(req.body.sides){
-            sides = req.body.sides;
+            sides = parseInt(req.body.sides);
         }
         if(req.body.dice){
-            dice = req.body.dice;
+            dice = parseInt(req.body.dice);
         }
         if(req.body.rolls){
-            rolls = req.body.rolls;
+            rolls = parseInt(req.body.rolls);
         }
 
         res.status(200).json(roll(sides, dice, rolls));
