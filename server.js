@@ -60,14 +60,14 @@ function main(){
     });
 
     app.get('/app/roll/:sides/:dice?/:rolls?/', (req, res) => {
-        sides = req.params.sides;
+        sides = parseInt(req.params.sides);
         if(req.params.dice){
-            dice = req.params.dice;
+            dice = parseInt(req.params.dice);
         }else{
             dice = 2;
         }
         if(req.params.rolls){
-            rolls = req.params.rolls;
+            rolls = parseInt(req.params.rolls);
         }else{
             rolls = 1;
         }
