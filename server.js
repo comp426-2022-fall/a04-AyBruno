@@ -1,7 +1,6 @@
 import {roll} from "./lib/roll.js"
 import minimist from "minimist"
 import express from "express"
-import body-
 
 const app = express();
 app.use(express.json());
@@ -46,7 +45,7 @@ function main(){
         sides = 6;
         dice = 2;
         rolls = 1;
-        console.log(req.body);
+//        console.log(req.body);
         if(req.body.sides){
             sides = req.body.sides;
         }
